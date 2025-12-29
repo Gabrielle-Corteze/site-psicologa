@@ -167,6 +167,7 @@ body {
     .carrossel, .apresentacao__imagem {
         order: 2;
        margin: 20px 0;
+    align-items: center;
     }
     .apresentacao__conteudo__texto {
         order: 3;
