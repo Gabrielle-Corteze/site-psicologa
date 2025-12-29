@@ -285,4 +285,9 @@ seta {
         height: 300px;
         width: 100%;
     }
+    .seta {
+    width: 35px; /* Setas menores no mobile */
+    height: 35px;
+    font-size: 1.2rem;
+}
 }
