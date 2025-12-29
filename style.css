@@ -157,7 +157,8 @@ body {
     }
     .carrossel {
        position: relative; /* Garante que as setas fiquem presas ao carrossel no mobile */
-        display: flex;
+       width: 50%; 
+       display: flex;
         align-items: center;
         width: 100%;
         max-width: 450px;
@@ -182,48 +183,6 @@ body {
         order: 4;
     }
 
-
-
-.carrossel {
-    width: 50%;
-    overflow: hidden; 
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    position: relative;
-    display: flex;
-   align-items: center;
-}
-
-seta {
-    position: absolute;
-    top: 50%; /* Move o topo da seta para o meio do carrossel */
-    transform: translateY(-50%); /* Ajusta a própria altura da seta para o centro real */
-    background-color: rgba(62, 7, 3, 0.8); /* Cor var(--cor--primaria) com transparência */
-    color: var(--cor--secundaria);
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%; /* Deixa a seta redonda */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    z-index: 15; /* Garante que fique acima das imagens */
-    transition: 0.3s;
-}
-
-.seta:hover {
-    background-color: var(--cor--hoover);
-    transform: translateY(-50%) scale(1.1); /* Aumenta levemente ao passar o mouse */
-}
-
-.seta--esquerda {
-    left: 15px; /* Fixa na lateral esquerda */
-}
-
-.seta--direita {
-    right: 15px; /* Fixa na lateral direita */
 }
 
 .carrossel__container {
@@ -251,35 +210,32 @@ seta {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(62, 7, 3, 0.7); /* Cor primária com transparência */
-    color: var(--cor--secundaria);
+    background-color: rgba(62, 7, 3, 0.9); 
+    color: #FFF0C4;
     border: none;
-   font-size: 2rem;
-    width: 50px;
-    height: 50px;
+  width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10; /* Garante que fique acima da imagem */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    visibility: visible; /* Garante que não herde invisibilidade */
+    opacity: 1;
 }
 
-.seta:hover {
-    background-color: var(--cor--hoover);
-}
-
-.seta--esquerda {
-    left: 15px;
-}
-
-.seta--direita {
-    right: 15px;
-
-}
+.seta--esquerda { left: 10px; }
+.seta--direita { right: 10px; }
 
 @media (max-width: 1200px) {
+    .cabecalho {
+        padding: 40px 5%;
+        width: 100vw; /* Garante faixa total no mobile */
+    max-width: 450px;
+}
     .carrossel {
         width: 100%;
         margin-top: 20px;
@@ -290,28 +246,8 @@ seta {
         width: 100%;
     }
     .seta {
-    width: 35px; /* Setas menores no mobile */
-    height: 35px;
-    font-size: 1.2rem;
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+    }
 }
-}
-
-.seta {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(62, 7, 3, 0.9); /* Cor escura para contraste */
-    color: #FFF0C4;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 100; /* Valor alto para garantir que fique na frente da foto */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.seta--esquerda { left: 5px; }
-.seta--direita { right: 5px; }
