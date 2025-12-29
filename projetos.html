@@ -25,7 +25,9 @@
             <p class="apresentacao__conteudo__texto">Deslize para o lado e veja as fotos dos eventos! </p>
         </section>
 
-    <div class="carrossel">
+ <div class="carrossel">
+        <button class="seta seta--esquerda" aria-label="Foto Anterior">&#10094;</button>
+        
         <div class="carrossel__container">
             <img class="carrossel__imagem" src="fotoProjeto1.jpeg" alt="Projeto 1">
             <img class="carrossel__imagem" src="fotoProjeto3.jpeg" alt="Projeto 2">
@@ -33,11 +35,32 @@
             <img class="carrossel__imagem" src="fotoProjeto5.jpeg" alt="Projeto 4">
             <img class="carrossel__imagem" src="fotoProjeto6.jpeg" alt="Projeto 5">
         </div>
+
+        <button class="seta seta--direita" aria-label="Próxima Foto">&#10095;</button>
     </div>
    </main>
 
    <footer class="rodape">
         <p>Entre em contato comigo: <a class="rodape__link" href= "mailto:andressacortezepsi@gmail.com" target="_blank" >andressacortezepsi@gmail.com</a> | Desenvolvido por <a class="rodape__link" href="https://instagram.com/gabriellecorteze" target="_blank">Gabrielle Corteze</a></p>
    </footer>
+<script>
+       const container = document.querySelector('.carrossel__container');
+       const btnEsquerda = document.querySelector('.seta--esquerda');
+       const btnDireita = document.querySelector('.seta--direita');
+
+       btnDireita.addEventListener('click', () => {
+           container.scrollBy({
+               left: container.clientWidth, // Rola a largura exata do container
+               behavior: 'smooth'
+           });
+       });
+
+       btnEsquerda.addEventListener('click', () => {
+           container.scrollBy({
+               left: -container.clientWidth, // Rola para trás
+               behavior: 'smooth'
+           });
+       });
+   </script>
 </body>
 </html>
