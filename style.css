@@ -185,6 +185,41 @@ body {
     overflow: hidden; 
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: flex;
+   align-items: center;
+}
+
+seta {
+    position: absolute;
+    top: 50%; /* Move o topo da seta para o meio do carrossel */
+    transform: translateY(-50%); /* Ajusta a própria altura da seta para o centro real */
+    background-color: rgba(62, 7, 3, 0.8); /* Cor var(--cor--primaria) com transparência */
+    color: var(--cor--secundaria);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* Deixa a seta redonda */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 15; /* Garante que fique acima das imagens */
+    transition: 0.3s;
+}
+
+.seta:hover {
+    background-color: var(--cor--hoover);
+    transform: translateY(-50%) scale(1.1); /* Aumenta levemente ao passar o mouse */
+}
+
+.seta--esquerda {
+    left: 15px; /* Fixa na lateral esquerda */
+}
+
+.seta--direita {
+    right: 15px; /* Fixa na lateral direita */
 }
 
 .carrossel__container {
@@ -193,10 +228,6 @@ body {
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
     gap: 10px;
-    cursor: grab;
-}
-.carrossel__container:active {
-    cursor: grabbing;
 }
 
 .carrossel__container::-webkit-scrollbar {
@@ -205,12 +236,44 @@ body {
 
 .carrossel__imagem {
     flex-shrink: 0;
-    width: 95%;
+    width: 100%;
     height: 400px; 
     object-fit: cover; 
     scroll-snap-align: center;
 }
 
+/* Estilos das Setas de Navegação */
+.seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(62, 7, 3, 0.7); /* Cor primária com transparência */
+    color: var(--cor--secundaria);
+    border: none;
+   font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10; /* Garante que fique acima da imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.seta:hover {
+    background-color: var(--cor--hoover);
+}
+
+.seta--esquerda {
+    left: 15px;
+}
+
+.seta--direita {
+    right: 15px;
+
+}
 
 @media (max-width: 1200px) {
     .carrossel {
@@ -220,6 +283,6 @@ body {
     
     .carrossel__imagem {
         height: 300px;
-        width: 85%;
+        width: 100%;
     }
 }
