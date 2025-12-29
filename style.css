@@ -138,9 +138,11 @@ body {
     }
     .cabecalho__menu {
        display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 1fr 1fr;
         gap: 24px 30px;
         justify-content: center;
+        justify-items: center;
+        width: 100%;
     }
     .cabecalho__menu__link {
         font-size: 1.2rem;
