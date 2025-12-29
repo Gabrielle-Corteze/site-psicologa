@@ -153,10 +153,10 @@ body {
        grid-template-columns: 1fr;
         padding: 5%;
         text-align: center;
+        justify-items: center;
     }
    .apresentacao__conteudo {
-        width: 100%;
-        align-items: center; /* Centraliza os botões no mobile */
+        width: 100%;     
     }
     .apresentacao__conteudo {
         display: contents;
@@ -167,7 +167,9 @@ body {
     .carrossel, .apresentacao__imagem {
         order: 2;
        margin: 20px 0;
-    align-items: center;
+       width: 100%;
+        max-width: 450px;
+     }
     }
     .apresentacao__conteudo__texto {
         order: 3;
