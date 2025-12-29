@@ -149,13 +149,30 @@ body {
         text-align: center;
     }
     .apresentacao {
-        flex-direction: column;
+        display: grid;
+       grid-template-columns: 1fr;
         padding: 5%;
         text-align: center;
     }
    .apresentacao__conteudo {
         width: 100%;
         align-items: center; /* Centraliza os botões no mobile */
+    }
+    .apresentacao__conteudo {
+        display: contents;
+    }
+    .apresentacao__conteudo__titulo {
+        order: 1;
+    }
+    .carrossel, .apresentacao__imagem {
+        order: 2;
+       margin: 20px 0;
+    }
+    .apresentacao__conteudo__texto {
+        order: 3;
+    }
+    .apresentacao__links {
+        order: 4;
     }
 
 }
