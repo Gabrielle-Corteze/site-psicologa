@@ -178,7 +178,7 @@ body {
         order: 4;
     }
 
-}
+
 
 .carrossel {
     width: 50%;
@@ -193,6 +193,10 @@ body {
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
     gap: 10px;
+    cursor: grab;
+}
+.carrossel__container:active {
+    cursor: grabbing;
 }
 
 .carrossel__container::-webkit-scrollbar {
@@ -216,5 +220,6 @@ body {
     
     .carrossel__imagem {
         height: 300px;
+        width: 85%;
     }
 }
