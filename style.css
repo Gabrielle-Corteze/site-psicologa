@@ -14,10 +14,10 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    box-sizing: border-box;
     background-color: var(--cor--primaria);
     color: var(--cor--secundaria);
 }
@@ -133,7 +133,8 @@ body {
 
 @media (max-width: 1200px) { /*responsividade para mobile*/
     .cabecalho {
-        padding: 10%;
+        padding: 24px 5%;
+        width: 100%;
     }
     .cabecalho__menu {
         justify-content: center;
