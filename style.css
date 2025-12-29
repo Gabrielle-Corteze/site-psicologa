@@ -10,29 +10,32 @@
     --fonte--secundaria: 'Montserrat', sans-serif;
 }
 
-
+/* 1. RESET E ESTILOS GLOBAIS */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Garante que o padding não quebre a largura */
 }
 
 body {
     background-color: var(--cor--primaria);
     color: var(--cor--secundaria);
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
 }
 
+/* 2. CABEÇALHO (DESKTOP) */
 .cabecalho {
     background-color: var(--cor--hoover);
-    padding: 24px 15%; /* Espaçamento interno para a faixa não ficar fina */
+    padding: 24px 15%;
     display: flex;
+    width: 100%;
 }
 
-.cabecalho__menu{
+.cabecalho__menu {
     display: flex;
     gap: 40px; 
     justify-content: flex-start; 
- }
+}
 
 .cabecalho__menu__link {
     text-decoration: none;
@@ -43,6 +46,7 @@ body {
     transition: 0.3s;
 }
 
+/* 3. CONTEÚDO PRINCIPAL (DESKTOP) */
 .apresentacao {
     padding: 5% 15%;
     display: flex;
@@ -60,11 +64,7 @@ body {
 
 .apresentacao__conteudo__titulo {
     font-size: 2.25rem;
-    font-family:var(--fonte--secundaria);
-}
-
-.titulo-destaque {
-    color:var(--cor--secundaria);
+    font-family: var(--fonte--secundaria);
 }
 
 .apresentacao__conteudo__texto {
@@ -77,15 +77,8 @@ body {
 .apresentacao__links {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     gap: 16px;
-}
-
-.apresentacao__links__subtitulo {
-    font-family: var(--fonte--primaria);
-    font-weight: 400;
-    font-size: 1.5rem;
 }
 
 .apresentacao__links__navegacao {
@@ -95,7 +88,6 @@ body {
     gap: 16px;
     border: 2px solid var(--cor--secundaria);
     width: 280px;
-    text-align: center;
     border-radius: 8px;
     font-size: 1.5rem;
     font-weight: 600;
@@ -105,84 +97,15 @@ body {
     font-family: var(--fonte--secundaria);
 }
 
-.apresentacao__links__navegacao:hover {
-    background-color: var(--cor--hoover);
-}
-
-.apresentacao__imagem{
+/* 4. CARROSSEL E SETAS (ESTILO GLOBAL) */
+.carrossel {
+    position: relative; /* Referência para as setas */
     width: 50%;
-}
-.rodape{
-    color: var(--cor--secundaria);
-    background-color: var(--cor--hoover);
-    padding: 10px;
-    text-align: center;
-    font-family: var(--fonte--secundaria);
-    font-size: 1rem;
-    font-weight: 300;
-}
-.rodape__link {
-    text-decoration: none;
-    color: var(--cor--secundaria);
-    font-weight: 600;
-}
-
-.rodape__link:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 1200px) { /*responsividade para mobile*/
-    .cabecalho {
-        padding: 40px 5%;
-        width: 100%;
-    }
-    .cabecalho__menu {
-       display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px 30px;
-        justify-content: center;
-        justify-items: center;
-        width: 100%;
-    }
-    .cabecalho__menu__link {
-        font-size: 1.2rem;
-        text-align: center;
-    }
-    .apresentacao {
-        display: grid;
-       grid-template-columns: 1fr;
-        padding: 5%;
-        text-align: center;
-        justify-items: center;
-    }
-    .carrossel {
-       position: relative; /* Garante que as setas fiquem presas ao carrossel no mobile */
-       width: 50%; 
-       display: flex;
-        align-items: center;
-        width: 100%;
-        max-width: 450px;
-    }
-   .apresentacao__conteudo {
-        width: 100%;     
-    }
-    .apresentacao__conteudo {
-        display: contents;
-    }
-    .apresentacao__conteudo__titulo {
-        order: 1;
-    }
-    .carrossel, .apresentacao__imagem {
-        order: 2;
-       margin: 20px 0;
-    }
-    .apresentacao__conteudo__texto {
-        order: 3;
-    }
-    .apresentacao__links {
-        order: 4;
-    }
-
+    overflow: hidden; 
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
 }
 
 .carrossel__container {
@@ -191,6 +114,7 @@ body {
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
     gap: 10px;
+    width: 100%;
 }
 
 .carrossel__container::-webkit-scrollbar {
@@ -205,49 +129,96 @@ body {
     scroll-snap-align: center;
 }
 
-/* Estilos das Setas de Navegação */
 .seta {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(62, 7, 3, 0.9); 
-    color: #FFF0C4;
+    background-color: rgba(62, 7, 3, 0.85); /* Fundo escuro para contraste */
+    color: var(--cor--secundaria);
     border: none;
-  width: 40px;
+    width: 40px;
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 10; /* Garante que fique acima da imagem */
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     transition: 0.3s;
-    visibility: visible; /* Garante que não herde invisibilidade */
-    opacity: 1;
+}
+
+.seta:hover {
+    background-color: var(--cor--hoover);
 }
 
 .seta--esquerda { left: 10px; }
 .seta--direita { right: 10px; }
 
+/* 5. RODAPÉ */
+.rodape {
+    color: var(--cor--secundaria);
+    background-color: var(--cor--hoover);
+    padding: 20px;
+    text-align: center;
+    font-family: var(--fonte--secundaria);
+}
+
+/* 6. RESPONSIVIDADE (MOBILE) */
 @media (max-width: 1200px) {
+    /* Cabeçalho faixa completa */
     .cabecalho {
         padding: 40px 5%;
-        width: 100vw; /* Garante faixa total no mobile */
-    max-width: 450px;
-}
-    .carrossel {
         width: 100%;
-        margin-top: 20px;
     }
+
+    /* Menu em 2 colunas centralizadas */
+    .cabecalho__menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        justify-items: center;
+        width: 100%;
+    }
+
+    .cabecalho__menu__link {
+        font-size: 1.2rem;
+    }
+
+    /* Layout da página: Título > Foto > Texto */
+    .apresentacao {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 10% 5%;
+        text-align: center;
+        justify-items: center;
+        gap: 20px;
+    }
+
+    .apresentacao__conteudo {
+        display: contents; /* Permite reordenar os filhos */
+    }
+
+    .apresentacao__conteudo__titulo { order: 1; }
     
+    .carrossel {
+        order: 2;
+        width: 100%;
+        max-width: 450px; /* Limite visual no mobile */
+        margin: 20px auto;
+    }
+
+    .apresentacao__conteudo__texto { order: 3; }
+    .apresentacao__links { order: 4; }
+
     .carrossel__imagem {
         height: 300px;
-        width: 100%;
     }
+
+    /* Ajuste fino das setas no mobile */
     .seta {
-        width: 32px;
-        height: 32px;
+        width: 35px;
+        height: 35px;
         font-size: 1.2rem;
     }
 }
