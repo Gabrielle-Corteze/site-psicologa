@@ -49,6 +49,17 @@
        const btnEsquerda = document.querySelector('.seta--esquerda');
        const btnDireita = document.querySelector('.seta--direita');
 
+       function atualizarSetas() {
+           const scrollLeft = container.scrollLeft;
+           const scrollWidth = container.scrollWidth;
+           const clientWidth = container.clientWidth;
+
+           // Esconde a esquerda se estiver no início (posição 0)
+           btnEsquerda.style.display = scrollLeft <= 0 ? 'none' : 'flex';
+
+           // Esconde a direita se o scroll chegar ao final (margem de 1px para evitar erros de arredondamento)
+           btnDireita.style.display = (scrollLeft + clientWidth >= scrollWidth - 1) ? 'none' : 'flex';
+       }
        btnDireita.addEventListener('click', () => {
            container.scrollBy({
                left: container.clientWidth, // Rola a largura exata do container
@@ -62,6 +73,10 @@
                behavior: 'smooth'
            });
        });
+       // Monitora a rolagem para atualizar as setas em tempo real
+       container.addEventListener('scroll', atualizarSetas);
+       // Executa uma vez no início para esconder a seta esquerda de cara
+       window.addEventListener('load', atualizarSetas);
    </script>
 </body>
 </html>
