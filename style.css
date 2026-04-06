@@ -533,7 +533,6 @@ body {
         width: 90%;         
      }
       .carrossel {
-        order: 2; /* Garante a ordem entre o título e o texto */
         width: 100%;
         max-width: 450px; /* Impede que fique gigante */
         margin: 20px auto;
