@@ -370,6 +370,7 @@ section.apresentacao__destaque {
     width: 100%;
     height: 420px;
     object-fit: cover;
+    object-position: center 35%;
     scroll-snap-align: center;
 }
 
